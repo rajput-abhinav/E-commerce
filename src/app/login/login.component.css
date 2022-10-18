@@ -1,6 +1,4 @@
-/* Importing fonts from Google */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-
+/* 
 /* Reseting */
 * {
     margin: 0;
@@ -101,4 +99,14 @@ body {
         margin: 30px 20px;
         padding: 40px 15px 15px 15px;
     }
+} 
+
+.error{
+    color: red;
+    font-size: medium;
+    /* margin: auto; */
 }
+
+/* input.ng-invalid.touched{
+    border: red;
+} */

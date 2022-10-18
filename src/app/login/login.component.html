@@ -1,19 +1,49 @@
 <div class="wrapper">
-    <div class="logo">
-        <img src="https://tse1.mm.bing.net/th/id/OIP.3IsXMskZyheEWqtE3Dr7JwHaGe?pid=ImgDet&rs=1" alt="">
+  <div class="logo">
+    <img
+      src="https://tse1.mm.bing.net/th/id/OIP.3IsXMskZyheEWqtE3Dr7JwHaGe?pid=ImgDet&rs=1"
+      alt=""
+    />
+  </div>
+  <div class="text-center mt-4 name">Login</div>
+  <form
+    #userForm="ngForm"
+    (ngSubmit)="onSubmit(userForm.value)"
+    class="p-3 mt-3"
+  >
+    <div class="form-field d-flex align-items-center">
+      <span class="far fa-user"></span>
+      <input
+        required
+        #email="ngModel"
+        email
+        type="text"
+        name="Email"
+        placeholder="Enter Email"
+        ngModel
+      />
     </div>
-    <div class="text-center mt-4 name">
-        Login
+    <span *ngIf="email.invalid && email.touched" class="error">
+      Please enter valid Email! </span
+    >
+    <div class="form-field d-flex align-items-center">
+      <span class="fas fa-key"></span>
+      <input
+        required
+        #password="ngModel"
+        type="password"
+        name="password"
+        id="pwd"
+        placeholder="Password"
+        pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@!%*?&])[A-Za-zd$@$!%*?&].{8,15}"
+        ngModel
+      />
     </div>
-    <form class="p-3 mt-3">
-        <div class="form-field d-flex align-items-center">
-            <span class="far fa-user"></span>
-            <input type="text" name="userName" id="userName" placeholder="Username">
-        </div>
-        <div class="form-field d-flex align-items-center">
-            <span class="fas fa-key"></span>
-            <input type="password" name="password" id="pwd" placeholder="Password">
-        </div>
-        <button class="btn mt-3">Login</button>
-    </form>
+    <span *ngIf="password.invalid && password.touched" class="error"
+      >Password is required</span
+    >
+    <div>
+      <button [disabled]="userForm.invalid" class="btn mt-3">Login</button>
+    </div>
+  </form>
 </div>

@@ -1,19 +1,61 @@
-<div class="wrapper">
-    <div class="logo">
-        <img src="https://tse1.mm.bing.net/th/id/OIP.3IsXMskZyheEWqtE3Dr7JwHaGe?pid=ImgDet&rs=1" alt="">
+<div *ngIf="!submitted" class="wrapper">
+  <div class="logo">
+    <img
+      src="https://tse1.mm.bing.net/th/id/OIP.3IsXMskZyheEWqtE3Dr7JwHaGe?pid=ImgDet&rs=1"
+      alt=""
+    />
+  </div>
+  <div *ngIf="!submitted" class="text-center mt-4 name">signup</div>
+  <form
+    #signup="ngForm"
+    (ngSubmit)="onSubmit()"
+    class="p-3 mt-3"
+    novalidate
+    *ngIf="!submitted"
+  >
+    <!-- {{ userModel | json }} -->
+    <div class="form-field">
+      <span class="far fa-user"></span>
+      <input
+        type="text"
+        name="userName"
+        id="userName"
+        placeholder="Username"
+        [(ngModel)]="userModel.name"
+        
+      />
     </div>
-    <div class="text-center mt-4 name">
-        signup
+    <div class="form-field">
+      <span class="fas fa-key"></span>
+      <input
+        required
+        email
+        #email="ngModel"
+        name="email"
+        placeholder="Email"
+        ngModel
+        [(ngModel)]="userModel.email"
+        
+      />
     </div>
-    <form class="p-3 mt-3">
-        <div class="form-field">
-            <span class="far fa-user"></span>
-            <input type="text" name="userName" id="userName" placeholder="Username">
-        </div>
-        <div class="form-field">
-            <span class="fas fa-key"></span>
-            <input type="email" name="email" id="eml" placeholder="Email">
-        </div>
-        <button class="btn mt-3">SignUp</button>
-    </form>
+    <span *ngIf="email.invalid && email.touched" class="error">
+      Please enter valid Email!
+    </span>
+    <div class="form-field d-flex align-items-center">
+      <span class="fas fa-key"></span>
+      <input
+        required
+        #password="ngModel"
+        type="password"
+        name="password"
+        id="pwd"
+        placeholder="Password"
+        pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@!%*?&])[A-Za-zd$@$!%*?&].{8,15}"
+        ngModel
+        [(ngModel)]="userModel.password"
+        
+      />
+    </div>
+    <button [disabled]="signup.invalid" class="btn mt-3">SignUp</button>
+  </form>
 </div>
