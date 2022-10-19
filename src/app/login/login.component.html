@@ -1,15 +1,16 @@
-<div class="wrapper">
+<div *ngIf="!submitted" class="wrapper">
   <div class="logo">
     <img
       src="https://tse1.mm.bing.net/th/id/OIP.3IsXMskZyheEWqtE3Dr7JwHaGe?pid=ImgDet&rs=1"
       alt=""
     />
   </div>
-  <div class="text-center mt-4 name">Login</div>
+  <div  class="text-center mt-4 name">Login</div>
   <form
     #userForm="ngForm"
     (ngSubmit)="onSubmit(userForm.value)"
     class="p-3 mt-3"
+    
   >
     <div class="form-field d-flex align-items-center">
       <span class="far fa-user"></span>
@@ -43,7 +44,11 @@
       >Password is required</span
     >
     <div>
-      <button [disabled]="userForm.invalid" class="btn mt-3">Login</button>
+      <button [disabled]="userForm.invalid" class="btn mt-3" (click)="loginUser()">Login</button>
     </div>
   </form>
+  <div>
+    <a class="nav-link" routerLink="forgetpassword"> Forget Password </a> 
+    <router-outlet></router-outlet>
+  </div>
 </div>

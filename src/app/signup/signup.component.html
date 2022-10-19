@@ -5,13 +5,13 @@
       alt=""
     />
   </div>
-  <div *ngIf="!submitted" class="text-center mt-4 name">signup</div>
+  <div class="text-center mt-4 name">signup</div>
   <form
     #signup="ngForm"
     (ngSubmit)="onSubmit()"
     class="p-3 mt-3"
     novalidate
-    *ngIf="!submitted"
+    
   >
     <!-- {{ userModel | json }} -->
     <div class="form-field">

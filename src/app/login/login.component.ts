@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit {
   accessed = false;
   userlist: any;
   _subscription: any;
+  submitted:boolean =false
+
   constructor(
     private router: Router,
     private userService: UserListService,
@@ -23,8 +25,11 @@ export class LoginComponent implements OnInit {
     this.accessed = accessService.haveAccess;
     this._subscription = accessService.accessChange.subscribe(
       (value) => (this.accessed = value)
+      
     );
   }
+ 
+  
 
   loginUser() {
     for (let i = 0; i < this.userlist.length; i++) {
@@ -43,6 +48,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(data: any) {
+    this.submitted=true;
     console.warn(data);
   }
 }

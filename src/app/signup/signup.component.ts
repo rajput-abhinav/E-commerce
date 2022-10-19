@@ -39,3 +39,6 @@ export class SignupComponent implements OnInit {
     );
   }
 }
+
+console.log('userModel');
+

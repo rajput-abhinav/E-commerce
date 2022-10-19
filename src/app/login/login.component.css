@@ -110,3 +110,8 @@ body {
 /* input.ng-invalid.touched{
     border: red;
 } */
+
+.wrapper .forgetPassword{
+    color: red;
+    margin-right: 30px;
+}
