@@ -6,9 +6,10 @@
     />
   </div>
   <div class="text-center mt-4 name">signup</div>
+  
   <form
     #signup="ngForm"
-    (ngSubmit)="onSubmit()"
+    (ngSubmit)="signupdata(signup)"
     class="p-3 mt-3"
     novalidate
     
@@ -19,23 +20,18 @@
       <input
         type="text"
         name="userName"
-        id="userName"
-        placeholder="Username"
-        [(ngModel)]="userModel.name"
-        
+        placeholder="Username" 
+        ngModel
       />
     </div>
     <div class="form-field">
       <span class="fas fa-key"></span>
       <input
         required
-        email
-        #email="ngModel"
+        type='email'
         name="email"
         placeholder="Email"
-        ngModel
-        [(ngModel)]="userModel.email"
-        
+        [(ngModel)]="email"  
       />
     </div>
     <span *ngIf="email.invalid && email.touched" class="error">
@@ -45,17 +41,14 @@
       <span class="fas fa-key"></span>
       <input
         required
-        #password="ngModel"
         type="password"
         name="password"
-        id="pwd"
         placeholder="Password"
         pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@!%*?&])[A-Za-zd$@$!%*?&].{8,15}"
-        ngModel
-        [(ngModel)]="userModel.password"
-        
+        [(ngModel)]="password"
       />
     </div>
-    <button [disabled]="signup.invalid" class="btn mt-3">SignUp</button>
+     <button [disabled]="signup.invalid" class="btn mt-3">SignUp </button>
   </form>
+  <span>Already have an account <a routerLink="/login">Signin</a></span> 
 </div>

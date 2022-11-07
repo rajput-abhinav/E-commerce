@@ -8,20 +8,19 @@
   <div  class="text-center mt-4 name">Login</div>
   <form
     #userForm="ngForm"
-    (ngSubmit)="onSubmit(userForm.value)"
+    (ngSubmit)="logindata(userForm)"
     class="p-3 mt-3"
+    
     
   >
     <div class="form-field d-flex align-items-center">
       <span class="far fa-user"></span>
       <input
         required
-        #email="ngModel"
-        email
         type="text"
         name="Email"
         placeholder="Enter Email"
-        ngModel
+        [(ngModel)]="email"
       />
     </div>
     <span *ngIf="email.invalid && email.touched" class="error">
@@ -31,24 +30,22 @@
       <span class="fas fa-key"></span>
       <input
         required
-        #password="ngModel"
         type="password"
         name="password"
-        id="pwd"
         placeholder="Password"
         pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@!%*?&])[A-Za-zd$@$!%*?&].{8,15}"
-        ngModel
+        [(ngModel)]="password"
       />
     </div>
     <span *ngIf="password.invalid && password.touched" class="error"
       >Password is required</span
     >
     <div>
-      <button [disabled]="userForm.invalid" class="btn mt-3" (click)="loginUser()">Login</button>
+      <button [disabled]="userForm.invalid" class="btn mt-3" >Login</button>
     </div>
   </form>
   <div>
-    <a class="nav-link" routerLink="forgetpassword"> Forget Password </a> 
-    <router-outlet></router-outlet>
+    <a class="nav-link" (click)="hide()" routerLink="/forgetpassword"> Forget Password </a> 
+    
   </div>
 </div>

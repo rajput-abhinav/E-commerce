@@ -1,5 +1,7 @@
+import { HttpResponseBase } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { AccessService } from './access';
+import { CommonService } from './common.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,12 +9,22 @@ import { AccessService } from './access';
 })
 export class AppComponent {
   access: any
-  show = true;
-  constructor(private accessService: AccessService) {
+  loginShow = true;
+  signupShow = true;
+  constructor(private accessService: AccessService,private commonService:CommonService) {
     this.access = this.accessService.getaccessStatus();
   }
+  addUser(formObj: any){
+    this.commonService.createUser(formObj).subscribe((Response)=>{
+      console.log("updarted")
+    })
+  }
 
-  hide(){
-    this.show=!this.show
+  hideSignup(){
+    this.signupShow=!this.signupShow
+  }
+
+  hideLogin(){
+    this.loginShow=!this.loginShow
   }
 }
