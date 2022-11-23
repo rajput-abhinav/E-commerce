@@ -3,8 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AccessService } from '../access';
 import { AppComponent } from '../app.component';
-import { ProductsComponent } from '../products/products.component';
-// import { UserListService } from '../user-list';
 
 @Component({
   selector: 'app-login',

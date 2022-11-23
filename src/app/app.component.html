@@ -1,10 +1,22 @@
 <div>
-  <h1 align="center">Electronic Shop </h1>
+  <h1 align="center">Electronic Shop</h1>
   <ul>
-    <a (click)="hideSignup()" *ngIf="loginShow" class="btn btn-primary" routerLink="login" >login</a>
-    <a (click)="hideLogin()" *ngIf="signupShow" class="btn btn-success" routerLink="signup">Sign Up </a>
-    
+    <a
+      (click)="hideSignup()"
+      *ngIf="loginShow"
+      class="btn btn-primary"
+      routerLink="login"
+      >login</a
+    >
+    <a
+      (click)="hideLogin()"
+      *ngIf="signupShow"
+      class="btn btn-success"
+      routerLink="signup"
+      >Sign Up
+    </a>  
   </ul>
 </div>
 
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> 
+

@@ -1,16 +1,10 @@
 {
   "signup": [
     {
-      "userName": "Abhi",
+      "userName": "Abhinav",
       "email": "abhi@gmail.com",
       "password": "Abhi@1234",
-      "id": 2
-    },
-    {
-      "userName": "Arjun",
-      "email": "arjun@gmail.com",
-      "password": "Arjun@1234",
-      "id": 3
+      "id": 1
     }
   ]
 }

@@ -1,0 +1,10 @@
+.products{
+    display: inline;
+}
+
+.products img{
+    margin-left: 2px;
+    float: auto;
+}
+
+
